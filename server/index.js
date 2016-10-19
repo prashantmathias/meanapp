@@ -17,13 +17,16 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(function(req, res, next) {
+app.use('/hello',function(req, res, next) {
   res.send('Hello world');
   next();
 });
 
 mongoose.connect('mongodb://localhost/meanstackapp');
 mongoose.connection.once('open', function() {
+
+  app.models = require('./models/index')
+
   console.log('Listening on port 3000');
   app.listen(3000);
 });
