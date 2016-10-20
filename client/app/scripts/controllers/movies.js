@@ -7,16 +7,8 @@
  * # MoviesCtrl
  * Controller of the clientApp
  */
+
 angular.module('clientApp')
-  .controller('MoviesCtrl', function ($scope) {
-    $scope.movieInfo = [
-      {
-        title: 'movie1',
-        url: 'www.movies.com'
-      },
-      {
-        title: 'movie2',
-        url: 'www.newmovies.com'
-      }
-    ];
+  .controller('MoviesCtrl', function ($scope, Movie) {
+    $scope.movies = Movie.getList().$object;
   });
